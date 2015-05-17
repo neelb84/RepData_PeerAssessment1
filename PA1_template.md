@@ -118,7 +118,7 @@ sum(is.na(activity))
 #Merging the average steps per interval from a previous step
 activity2<-merge(x = activity,    y = meanStepsPerInterval,    by = "interval", all.x=TRUE)
 
-#Imputing the missing values in steps with the mean steaps per interval 
+#Imputing the missing values in steps with the MEAN steps per interval 
 activity2$steps_meanimputed<-ifelse(is.na(activity2$steps),activity2$meanStepsPerInt,activity2$steps)
 
 #Create new dataset replacing the old steps column with mean-imputed steps column
