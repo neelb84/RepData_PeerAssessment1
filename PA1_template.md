@@ -117,7 +117,10 @@ sum(is.na(activity))
 ```r
 #Merging the average steps per interval from a previous step
 activity2<-merge(x = activity,    y = meanStepsPerInterval,    by = "interval", all.x=TRUE)
+```
+###Missing Values are imputed using the Mean valus of the steps computed for each interval across all days
 
+```r
 #Imputing the missing values in steps with the mean steaps per interval 
 activity2$steps_meanimputed<-ifelse(is.na(activity2$steps),activity2$meanStepsPerInt,activity2$steps)
 
@@ -163,7 +166,7 @@ hist(StepsPerDay2$totalStepsPerDay2,col="Green",main='Total Steps Per Day',
      xlab='Steps Per Day',ylab='Frequency' )
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-5-1.png) 
 
 ```r
 #Mean and MEdian of Total Steps per Day
@@ -184,6 +187,7 @@ medianStepsPerDay2
 ```
 ## [1] 10766.19
 ```
+###The Mean and Median changes slightly after the imputation, however the changes are small as imputation is done using Mean
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
@@ -213,5 +217,5 @@ f3<-f2+labs(x="Interval",y="Average Steps by Interval",title="Comparing Average 
 f3
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-5-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-6-1.png) 
 ###Higher averages in the Weekends are more generally but mornings are higher for weekdays

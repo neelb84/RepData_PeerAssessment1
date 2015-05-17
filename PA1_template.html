@@ -134,9 +134,10 @@ subset(meanStepsPerInterval$interval,meanStepsPerInterval$meanStepsPerInt==max(m
 sum(is.na(activity))</code></pre>
 <pre><code>## [1] 2304</code></pre>
 <pre class="r"><code>#Merging the average steps per interval from a previous step
-activity2&lt;-merge(x = activity,    y = meanStepsPerInterval,    by = &quot;interval&quot;, all.x=TRUE)
-
-#Imputing the missing values in steps with the mean steaps per interval 
+activity2&lt;-merge(x = activity,    y = meanStepsPerInterval,    by = &quot;interval&quot;, all.x=TRUE)</code></pre>
+<div id="missing-values-are-imputed-using-the-mean-valus-of-the-steps-computed-for-each-interval-across-all-days" class="section level3">
+<h3>Missing Values are imputed using the Mean valus of the steps computed for each interval across all days</h3>
+<pre class="r"><code>#Imputing the missing values in steps with the mean steaps per interval 
 activity2$steps_meanimputed&lt;-ifelse(is.na(activity2$steps),activity2$meanStepsPerInt,activity2$steps)
 
 #Create new dataset replacing the old steps column with mean-imputed steps column
@@ -176,6 +177,10 @@ meanStepsPerDay2</code></pre>
 <pre><code>## [1] 10766.19</code></pre>
 <pre class="r"><code>medianStepsPerDay2</code></pre>
 <pre><code>## [1] 10766.19</code></pre>
+</div>
+<div id="the-mean-and-median-changes-slightly-after-the-imputation-however-the-changes-are-small-as-imputation-is-done-using-mean" class="section level3">
+<h3>The Mean and Median changes slightly after the imputation, however the changes are small as imputation is done using Mean</h3>
+</div>
 </div>
 <div id="are-there-differences-in-activity-patterns-between-weekdays-and-weekends" class="section level2">
 <h2>Are there differences in activity patterns between weekdays and weekends?</h2>

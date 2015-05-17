@@ -76,7 +76,9 @@ sum(is.na(activity))
 
 #Merging the average steps per interval from a previous step
 activity2<-merge(x = activity,    y = meanStepsPerInterval,    by = "interval", all.x=TRUE)
-
+```
+###Missing Values are imputed using the Mean valus of the steps computed for each interval across all days
+```{r}
 #Imputing the missing values in steps with the mean steaps per interval 
 activity2$steps_meanimputed<-ifelse(is.na(activity2$steps),activity2$meanStepsPerInt,activity2$steps)
 
@@ -100,7 +102,10 @@ medianStepsPerDay2<- median(StepsPerDay2$totalStepsPerDay2,na.rm=TRUE)
 
 meanStepsPerDay2
 medianStepsPerDay2
+
+
 ```
+###The Mean and Median changes slightly after the imputation, however the changes are small as imputation is done using Mean
 
 ## Are there differences in activity patterns between weekdays and weekends?
 ```{r}
