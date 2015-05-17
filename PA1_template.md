@@ -120,8 +120,12 @@ activity2<-merge(x = activity,    y = meanStepsPerInterval,    by = "interval", 
 ```
 ###Missing Values are imputed using the Mean valus of the steps computed for each interval across all days
 
+<<<<<<< HEAD
 ```r
 #Imputing the missing values in steps with the mean steaps per interval 
+=======
+#Imputing the missing values in steps with the MEAN steps per interval 
+>>>>>>> origin/master
 activity2$steps_meanimputed<-ifelse(is.na(activity2$steps),activity2$meanStepsPerInt,activity2$steps)
 
 #Create new dataset replacing the old steps column with mean-imputed steps column
